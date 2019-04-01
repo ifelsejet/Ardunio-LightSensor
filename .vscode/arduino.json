@@ -1,4 +1,6 @@
 {
     "programmer": "ArduinoISP",
-    "board": "arduino:avr:uno"
+    "board": "arduino:avr:uno",
+    "sketch": "light-sensor.ino",
+    "port": "COM3"
 }
