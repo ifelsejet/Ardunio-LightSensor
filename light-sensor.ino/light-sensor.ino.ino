@@ -5,7 +5,7 @@ const int analogMax = 256;
 const long delayTime  = 1000;
 
 //Variables
-int value;				  // Store value from photoresistor (0-1023)
+int photoValue;          // Store value from photoresistor (0-1023)
 
 void setup(){
  Serial.begin(9600);   
@@ -13,15 +13,14 @@ void setup(){
  pinMode(pResistor, INPUT);// Set pResistor - A0 pin as an input (optional)
 }
 
-void loop(){
-  value = analogRead(pResistor);
-  
-  for(int i = 0; i < analogMax; i++){
+void loop(){  
+  for(int i = 0; i < analogMax; i+=2){
       analogWrite(ledPin, i);
       delay(delayTime); 
+      photoValue = analogRead(pResistor);
       Serial.print(i);
       Serial.print(" : ");
-      Serial.print(value);
+      Serial.println(photoValue);
 
   }
 
